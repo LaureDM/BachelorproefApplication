@@ -1,0 +1,89 @@
+﻿@model p2g21.Models.ViewModels.FeedbackBekijkenModel
+@{
+    ViewBag.Title = "Feedback ";
+    Layout = "~/Views/Shared/_LayoutApps.cshtml";
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table">
+
+    <tr>
+        <td>
+            @Html.LabelFor(m => m.Titel, new { @class = "control-label col-md-6" })
+        </td>
+        <td>
+            @Html.DisplayFor(m => m.Titel, new { @class = "control-label col-md-6" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(m => m.Context, new { @class = "control-label col-md-6" })
+        </td>
+        <td>
+            @Html.DisplayFor(m => m.Context, new { @class = "control-label col-md-6" })
+        </td>
+
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(m => m.Doelstellingen, new { @class = "control-label col-md-6" })
+        </td>
+        <td>
+            @Html.DisplayFor(m => m.Doelstellingen, new { @class = "control-label col-md-6" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(m => m.Onderzoeksvraag, new { @class = "control-label col-md-6" })
+        </td>
+        <td>
+            @Html.DisplayFor(m => m.Onderzoeksvraag, new { @class = "control-label col-md-6" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(m => m.Bijdrage, new { @class = "control-label col-md-6" })
+        </td>
+        <td>
+            @Html.DisplayFor(m => m.Bijdrage, new { @class = "control-label col-md-6" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(m => m.Onderwerp, new { @class = "control-label col-md-6" })
+        </td>
+        <td>
+            @Html.DisplayFor(m => m.Onderwerp, new { @class = "control-label col-md-6" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(m => m.Bron, new { @class = "control-label col-md-6" })
+        </td>
+        <td>
+            @Html.DisplayFor(m => m.Bron, new { @class = "control-label col-md-6" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(m => m.Suggesties, new { @class = "control-label col-md-6" })
+        </td>
+        <td>
+            @Html.DisplayFor(m => m.Suggesties, new { @class = "control-label col-md-6" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(m => m.Opmerkingen, new { @class = "control-label col-md-6" })
+        </td>
+        <td>
+            @Html.DisplayFor(m => m.Opmerkingen, new { @class = "control-label col-md-6" })
+        </td>
+
+    </tr>
+</table>
+
+@Html.ActionLink("Terug", "AdviesGeven")
+

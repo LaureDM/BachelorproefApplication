@@ -1,0 +1,71 @@
+﻿@model p2g21.Models.Domain.Promotor
+@{
+    ViewBag.Title = "Overzicht dossiers";
+    Layout = "~/Views/Shared/_LayoutApps.cshtml";
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+}
+
+<h3>Dossiers</h3>
+
+<table class="table">
+    <tr>
+        <th>
+            Student
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            Indiendatum
+        </th>
+        <th>
+            Op tijd ingediend
+        </th>
+        <th>
+            Campus
+        </th>
+        <th>
+            Werktitel
+        </th>
+        <th>
+            Voorstel
+        </th>
+        <th>
+            Feedback
+        </th>
+    </tr>
+
+
+        @foreach (var student in Model.Studenten)
+        {
+            foreach (var dossier in student.Dossiers)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => student.Voornaam) @Html.DisplayFor(modelItem => student.Naam)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => dossier.IngediendVoorstel.Toestand)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => dossier.IngediendVoorstel.TijdstipIndienen)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => student.OpTijd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => student.Campus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => dossier.IngediendVoorstel.VoorstelTitel)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Bekijken", "VoorstelBekijkenODV", new { ids = student.GebruikerId, idv = dossier.IngediendVoorstel.VoorstelId })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Bekijken", "Feedback", new { id = student.GebruikerId })
+                    </td>
+                </tr>
+        }
+    }
+</table>

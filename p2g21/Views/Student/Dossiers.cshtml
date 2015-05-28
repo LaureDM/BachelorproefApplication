@@ -1,0 +1,65 @@
+﻿@model p2g21.Models.Domain.Student
+@{
+    ViewBag.Title = "Dossiers";
+    Layout = "~/Views/Shared/_LayoutApps.cshtml";
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+}
+
+@if(Model.Dossiers.Count==0)
+{
+    <p>U heeft nog geen dossiers. Dien een voorstel in om een dossier te openen</p>
+}
+else
+{
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Titel voorstel")
+        </th>
+        <th>
+            @Html.DisplayName("Voorstel")
+        </th>
+        <th>
+            @Html.DisplayName("Toestand")
+        </th>
+        <th>
+            @Html.DisplayName("Feedback")
+        </th>
+        <th>
+            @Html.DisplayName("Advies BPC")
+        </th>
+        <th>
+            @Html.DisplayName("Geaccepteerd")
+        </th>
+    </tr>
+    
+    @foreach(var item in Model.Dossiers)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem=>item.IngediendVoorstel.VoorstelTitel)
+            </td>
+            <td>
+                @Html.ActionLink("Bekijken", "VoorstelBekijken", new { id =item.DossierId})
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem=>item.IngediendVoorstel.Toestand)
+            </td>
+            <td>
+                @if ((item.IngediendVoorstel.Feedback != null) && (item.IngediendVoorstel.Feedback.IsDefinitief))
+                {
+                @Html.ActionLink("Openen", "FeedbackBekijken", new { id = item.DossierId})
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem=>item.IngediendVoorstel.Advies)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem=>item.Geaccepteerd)
+            </td>
+        </tr>
+    }
+</table>
+}
+
+

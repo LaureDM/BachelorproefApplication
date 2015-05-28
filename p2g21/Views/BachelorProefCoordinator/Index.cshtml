@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Bachelorproefcoördinator";
+    Layout = "~/Views/Shared/_LayoutApps.cshtml";
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+}
+
+<h3>Welkom</h3>
+<p>
+    Als een promotor je advies gevraagd heeft is deze @Html.ActionLink("hier", "AdviesGeven", "BachelorProefCoordinator") beschikbaar.<br />
+    Je kan @Html.ActionLink("hier", "AdviesGeven", "BachelorProefCoordinator") dan ook je advies geven.<br />
+    <br />
+    Ook kan je opvolgen hoe ver het staat met de verwerking van de dossiers van alle studenten. Dat kan je @Html.ActionLink("hier", "OverzichtDossiers", "BachelorProefCoordinator") doen.<br />
+    <br />
+    En als je wenst een onderzoeksdomein toe te voegen kan je dat hier doen: @Html.ActionLink("Onderzoeksdomein toevoegen", "OnderzoeksdomeinToevoegen", "BachelorProefCoordinator").
+</p>

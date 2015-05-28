@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    
+    <header>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#"><img src="../Images/logo.png"> HoGent </a>
+                </div>
+                
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                @if (User.Identity.IsAuthenticated) { 
+                <ul class="nav navbar-nav">
+                            @if (User.IsInRole("Promotor"))
+                            {
+                                <li>@Html.ActionLink("Index", "Index","Promotor")</li>
+                                <li>@Html.ActionLink("Voorstel evalueren", "Evalueren","Promotor")</li>
+                                <li>@Html.ActionLink("Deadline wijzigen", "DeadlineWijzigen","Promotor")</li>
+                                <li>@Html.ActionLink("Dossiers bekijken", "OverzichtDossiers", "Promotor")</li>
+                            }
+                            else if (User.IsInRole("Student"))
+                            {
+                                <li>@Html.ActionLink("Index", "Index", "Student")</li>
+                                <li>@Html.ActionLink("Voorstellen bekijken", "Voorstellen", "Student")</li>
+                                <li>@Html.ActionLink("Dossier bekijken","Dossiers","Student")</li>
+                            }
+                            else if (User.IsInRole("BPC"))
+                            {
+                                <li>@Html.ActionLink("Index", "Index", "BachelorProefCoordinator")</li>
+                                <li>@Html.ActionLink("Advies geven", "AdviesGeven", "BachelorProefCoordinator")</li>
+                                <li>@Html.ActionLink("Dossiers bekijken", "OverzichtDossiers", "BachelorProefCoordinator")</li>
+                                <li>@Html.ActionLink("Onderzoeksdomein toevoegen","OnderzoeksdomeinToevoegen","BachelorProefCoordinator")</li>
+                            }
+                    </ul>
+                }
+                    @if (User.Identity.IsAuthenticated) { 
+                    <ul class="nav navbar-nav navbar-right">   
+                    <li>
+                                @Html.AntiForgeryToken()
+                                @Html.ActionLink("Log Out", "LogOff", "Account")
+                    </li>
+                    </ul>}
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+    </header>
+    <div class="container-fluid">
+    
+        @if (TempData["Info"] != null)
+        {
+            <div class="alert alert-success">@TempData["Info"]</div>
+        }
+        @if (TempData["Error"] != null)
+        {
+        <div class="alert alert-warning">@TempData["Error"]</div>
+        }
+        @RenderBody()
+    </div>
+
+    <script src="~/Scripts/jquery-2.1.0.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.4.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/modernizr-2.7.2.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script>
+        $("#brol").append("<h2></h2>");
+        $("#studentenLijst a").click(function () {
+            $("#studentenLijst td").removeClass("active");
+            $(this).closest("td").toggleClass("active");
+        });
+        function updateName(data) {
+            $('#nameHolder').append("<h2>"+data+"</h2>");
+        }
+        
+
+    </script>
+</body>
+</html>

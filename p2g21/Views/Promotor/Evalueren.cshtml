@@ -1,0 +1,58 @@
+﻿@model IEnumerable<p2g21.Models.Domain.Student>
+@{
+    ViewBag.Title = "Evalueren";
+    Layout = "~/Views/Shared/_LayoutApps.cshtml";
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+}
+
+<h3>Voorstellen</h3>
+
+<table class="table">
+    <tr>
+        <th>
+            Student
+        </th>
+        <th>
+            Voorstel
+        </th>
+        <th>
+            Feedback
+        </th>
+        <th>
+            BPC
+        </th>
+        <th>
+            Advies BPC
+        </th>
+        <th>
+            Acties
+        </th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Voornaam) @Html.DisplayFor(modelItem => item.Naam)
+            </td>
+            <td>
+                @Html.ActionLink("Bekijken", "VoorstelBekijken", new { id = item.GebruikerId})
+            </td>
+            <td>
+                @Html.ActionLink("Feedback Geven", "GeefFeedback", new { id = item.GebruikerId })
+            </td>
+            <td>
+                @Html.ActionLink("Advies BPC", "AdviesBPC", new { id = item.GebruikerId })
+            </td>
+            <td>
+                @Html.ActionLink("Bekijken", "AdviesBPCBekijken", new { id = item.GebruikerId })
+            </td>
+            <td>
+                @Html.ActionLink("Goedkeuren", "VoorstelGoedkeuren", new { id = item.GebruikerId }) | @Html.ActionLink("Afkeuren", "VoorstelAfkeuren", new { id = item.GebruikerId })
+            </td>
+        </tr>
+    }
+</table>
+
+

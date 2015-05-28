@@ -1,0 +1,71 @@
+﻿@model IEnumerable<p2g21.Models.Domain.Voorstel>
+@{
+    ViewBag.Title = "Voorstellen";
+    Layout = "~/Views/Shared/_LayoutApps.cshtml";
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+}
+
+<h3>Voorstellen</h3>
+
+<p>
+    @Html.ActionLink("Maak een nieuw voorstel", "VoorstelOpslaan")
+</p>
+
+@if (Model.Count() == 0)
+{
+    <p>U heeft nog geen voorstellen toegevoegd</p>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayName("Titel")
+            </th>
+            <th>
+                @Html.DisplayName("Doelstelling")
+            </th>
+            <th>
+                @Html.DisplayName("Plan van aanpak")
+            </th>
+            <th>
+                @Html.DisplayName("Probleemstelling")
+            </th>
+            <th>
+                @Html.DisplayName("Status")
+            </th>
+            <th>
+                @Html.DisplayName("Acties")
+            </th>
+        </tr>
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VoorstelTitel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Doelstelling)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlanVanAanpak)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProbleemStelling)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Toestand)
+                </td>
+                <td>
+                    @Html.ActionLink("Aanpassen", "VoorstelAanpassen", new { id = item.VoorstelId })
+                    @Html.ActionLink("Verwijderen", "Delete", new { id = item.VoorstelId })
+                    @Html.ActionLink("Indienen", "VoorstelIndienen", new { id = item.VoorstelId })
+                </td>
+
+            </tr>
+        }
+    </table>
+}
+

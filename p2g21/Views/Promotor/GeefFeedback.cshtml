@@ -1,0 +1,100 @@
+﻿@model p2g21.Models.ViewModels.FeedbackCreateViewModel
+
+@{
+    ViewBag.Title = "Feedback";
+    Layout = "~/Views/Shared/_LayoutApps.cshtml";
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+}
+
+@using (Html.BeginForm("GeefFeedback", "Promotor", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <table class="table">
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Titel)
+            </td>
+            <td>
+                @Html.DropDownListFor(m => m.Titel, new SelectList(new List<int> { 1, 2, 3, 4, 5 }), new { @Value = Model.Titel })
+                @Html.ValidationMessageFor(model => model.Titel)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Context)
+            </td>
+            <td>
+                @Html.DropDownListFor(m => m.Context, new SelectList(new List<int> { 1, 2, 3, 4, 5 }), new { @Value = Model.Context })
+                @Html.ValidationMessageFor(model => model.Context)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Doelstellingen)
+            </td>
+            <td>
+                @Html.DropDownListFor(m => m.Doelstellingen, new SelectList(new List<int> { 1, 2, 3, 4, 5 }), new { @Value = Model.Doelstellingen})
+                @Html.ValidationMessageFor(model => model.Doelstellingen)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Onderzoeksvraag)
+            </td>
+            <td>
+                @Html.DropDownListFor(m => m.Onderzoeksvraag, new SelectList(new List<int> { 1, 2, 3, 4, 5 }), new { @Value = Model.Onderzoeksvraag})
+                @Html.ValidationMessageFor(model => model.Onderzoeksvraag)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Bijdrage)
+            </td>
+            <td>
+                @Html.DropDownListFor(m => m.Bijdrage, new SelectList(new List<int> { 1, 2, 3, 4, 5 }), new { @Value = Model.Bijdrage})
+                @Html.ValidationMessageFor(model => model.Bijdrage)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Onderwerp)
+            </td>
+            <td>
+                @Html.DropDownListFor(m => m.Onderwerp, new SelectList(new List<int> { 1, 2, 3, 4, 5 }), new { @Value = Model.Onderwerp})
+                @Html.ValidationMessageFor(model => model.Onderwerp)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Bron)
+            </td>
+            <td>
+                @Html.DropDownListFor(m => m.Bron, new SelectList(new List<int> { 1, 2, 3, 4, 5 }), new { @Value = Model.Bron})
+                @Html.ValidationMessageFor(model => model.Bron)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Suggesties)
+            </td>
+            <td>
+                @Html.EditorFor(model => model.Suggesties, new { @Value = Model.Suggesties})
+                @Html.ValidationMessageFor(model => model.Suggesties)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Opmerkingen)
+            </td>
+            <td>
+                @Html.EditorFor(model => model.Opmerkingen, new { @Value = Model.Opmerkingen})
+                @Html.ValidationMessageFor(model => model.Opmerkingen)
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Opslaan" class="btn btn-default" /></td>
+        </tr>
+    </table>
+    <br />
+    @Html.ActionLink("Terug", "Evalueren")
+}

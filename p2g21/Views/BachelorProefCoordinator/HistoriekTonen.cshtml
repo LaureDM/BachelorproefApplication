@@ -1,0 +1,29 @@
+﻿@model p2g21.Models.Domain.Student
+@{
+    ViewBag.Title = "Historiek";
+    Layout = "~/Views/Shared/_LayoutApps.cshtml";
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+}
+
+<table class="table">
+    <tr>
+        <th>
+            Voorstel titel
+        </th>
+        <th>
+            Historiek
+        </th>
+    </tr>
+
+    @foreach(var item in Model.Dossiers)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem=>item.IngediendVoorstel.VoorstelTitel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem=>item.IngediendVoorstel.Historiek.VolledigeLog)
+            </td>
+        </tr>
+    }
+</table>

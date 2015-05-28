@@ -1,0 +1,15 @@
+﻿@model p2g21.Models.Domain.Onderzoeksdomein
+@{
+    ViewBag.Title = "Onderzoeksdomein toevoegen";
+    Layout = "~/Views/Shared/_LayoutApps.cshtml";
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+}
+
+@using(Html.BeginForm("OnderzoeksdomeinToevoegen","BachelorProefCoordinator"))
+{
+    @Html.DisplayFor(m=>m.Naam)
+    @Html.TextBoxFor(m=>m.Naam)
+    
+    <input type="submit" value="Opslaan" />
+}
+

@@ -1,0 +1,35 @@
+﻿@model p2g21.Models.ViewModels.AdviesGevenModel
+@{
+    ViewBag.Title = "Advies";
+    Layout = "~/Views/Shared/_LayoutApps.cshtml";
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+}
+
+@using (Html.BeginForm("Advies", "BachelorProefCoordinator", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <table class="table">
+        <tr>
+            <th>
+                Vraag
+            </th>
+            <td>
+                @Html.DisplayFor(model=>model.Vraag)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(model => model.Antwoord)
+            </th>
+            <td>
+                @Html.EditorFor(model => model.Antwoord, new { @Value = Model.Antwoord })
+                @Html.ValidationMessageFor(model => model.Antwoord)
+            </td>
+        </tr>
+    </table>
+    <div class="form-group">
+       
+      <br />
+        <br />
+        <input type="submit" value="Geef Advies" class="btn btn-default" />
+    </div>
+}

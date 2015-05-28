@@ -1,0 +1,44 @@
+﻿@model IEnumerable<p2g21.Models.Domain.Student>
+@{
+    ViewBag.Title = "Advies geven";
+    Layout = "~/Views/Shared/_LayoutApps.cshtml";
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+}
+
+<h3>Voorstellen</h3>
+<table class="table">
+    <tr>
+        <th>
+            Student
+        </th>
+        <th>
+            Voorstel
+        </th>
+        <th>
+            Feedback
+        </th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Voornaam) @Html.DisplayFor(modelItem => item.Naam)
+            </td>
+            <td>
+                @Html.ActionLink("Bekijken", "VoorstelBekijken", new { id = item.GebruikerId })
+            </td>
+            <td>
+                @Html.ActionLink("Bekijken", "FeedbackAdviesGeven", new { id = item.GebruikerId })
+            </td>
+            <td>
+                @Html.ActionLink("Advies geven", "Advies", new { id = item.GebruikerId })
+            </td>
+            <td>
+
+            </td>
+        </tr>
+    }
+</table>

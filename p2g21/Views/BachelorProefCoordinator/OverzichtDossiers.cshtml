@@ -1,0 +1,93 @@
+﻿@model IEnumerable<p2g21.Models.Domain.Promotor>
+@{
+    ViewBag.Title = "Overzicht dossiers";
+    Layout = "~/Views/Shared/_LayoutApps.cshtml";
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+}
+
+<h3>Dossiers</h3>
+
+<table class="table">
+    <tr>
+        <th>
+            Student
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            Indiendatum    
+        </th>
+        <th>
+            Op tijd ingediend
+        </th>
+        <th>
+            Campus
+        </th>
+        <th>
+            Promotor
+        </th>
+        <th>
+            Werktitel
+        </th>
+        <th>
+            Voorstel
+        </th>
+        <th>
+            Onderzoeksdomein
+        </th>
+        <th>
+            Feedback
+        </th>
+        <th>
+            Toon historiek
+        </th>
+    </tr>
+
+
+    @foreach (var promotor in Model)
+    {
+        foreach (var student in promotor.Studenten)
+        {
+            foreach (var dossier in student.Dossiers)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => student.Voornaam) @Html.DisplayFor(modelItem => student.Naam)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => dossier.IngediendVoorstel.Toestand)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => dossier.IngediendVoorstel.TijdstipIndienen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem=>student.OpTijd)                
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem=>student.Campus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => promotor.Voornaam) @Html.DisplayFor(modelItem => promotor.Naam)
+                    @Html.ActionLink("Wijzigen", "PromotorWijzigen", new {id=student.GebruikerId })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => dossier.IngediendVoorstel.VoorstelTitel)
+                </td>
+                <td>
+                    @Html.ActionLink("Bekijken", "VoorstelBekijkenODV", new { ids = student.GebruikerId, idv = dossier.IngediendVoorstel.VoorstelId })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => dossier.IngediendVoorstel.Od1.Naam)
+                </td>
+                <td>
+                        @Html.ActionLink("Bekijken", "Feedback", new { id = student.GebruikerId } )
+                </td>
+                <th>
+                    @Html.ActionLink("Openen", "HistoriekTonen", new { id= student.GebruikerId})
+                </th>
+            </tr>
+            }
+        }
+    }
+</table>

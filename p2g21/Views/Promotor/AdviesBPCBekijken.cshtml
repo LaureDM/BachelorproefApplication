@@ -1,0 +1,19 @@
+﻿@model p2g21.Models.Domain.Voorstel
+@{
+    ViewBag.Title = "Voorstel";
+    Layout = "~/Views/Shared/_LayoutApps.cshtml";
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+}
+
+<h3>Advies BPC</h3>
+<table class="table">
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.AdviesVraag)</td>
+        <td>@Html.DisplayFor(item => item.AdviesVraag)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.Advies)</td>
+        <td>@Html.DisplayFor(item => item.Advies)</td>
+    </tr>
+</table>
+@Html.ActionLink("Terug", "Evalueren")

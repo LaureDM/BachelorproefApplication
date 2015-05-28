@@ -1,0 +1,28 @@
+﻿@model p2g21.Models.ViewModels.PromotorWijzigenModel
+@{
+    ViewBag.Title = "Promotor wijzigen";
+    Layout = "~/Views/Shared/_LayoutApps.cshtml";
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+}
+
+<h5>Kies een nieuwe promotor</h5>
+
+@using (Html.BeginForm(new { id = Model.id}))
+{
+    <table class="table">
+        <tr>
+            <th>
+                Kies een promotor uit de lijst
+            </th>
+            <td>
+                @Html.DropDownListFor(m => m.promotor, Model.lijst, "-- kies een promotor --")
+            </td>
+        </tr>
+    </table>
+    
+    <input type="submit" value="Opslaan" class="btn btn-default" />
+}
+
+@Html.ActionLink("Terug","OverzichtDossiers");
+
+

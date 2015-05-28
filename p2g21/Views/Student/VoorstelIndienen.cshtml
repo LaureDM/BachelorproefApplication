@@ -1,0 +1,16 @@
+﻿@model p2g21.Models.Domain.Voorstel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutApps.cshtml";
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+}
+
+<h5>Weet je zeker dat je het voorstel @Model.VoorstelTitel wil indienen?</h5>
+
+@using (Html.BeginForm())
+{
+    <p>
+        <input type="submit" value="Indienen" /> |
+        @Html.ActionLink("Terug", "Index")
+    </p>
+}

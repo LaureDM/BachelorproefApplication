@@ -1,0 +1,18 @@
+﻿@model p2g21.Models.ViewModels.AdviesVragenModel
+
+@{
+    ViewBag.Title = "Advies BPC";
+    Layout = "~/Views/Shared/_LayoutApps.cshtml";
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+}
+
+@using (Html.BeginForm("AdviesBPC", "Promotor", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.LabelFor(m=>m.Vraag)<br />
+    @Html.TextBoxFor(model => model.Vraag, new { @Value = Model.Vraag})
+    @Html.ValidationMessageFor(model => model.Vraag, null, new { @class = "ErrorMessage" })<br />
+
+    <input type="submit" value="Advies vragen" class="btn btn-default" /><br />
+    
+    @Html.ActionLink("Terug", "Evalueren")
+}

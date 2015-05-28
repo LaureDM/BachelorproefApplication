@@ -1,0 +1,176 @@
+﻿@model p2g21.Models.ViewModels.VoorstelIndienenModel
+
+@{
+    ViewBag.Title = "Voorstel aanmaken";
+    Layout = "~/Views/Shared/_LayoutApps.cshtml";
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+}
+
+
+<h1>Voorstel indienen</h1>
+<h4>Vul de gegevens in om een voorstel op te slaan</h4>
+
+
+@using (Html.BeginForm(new { @class = "form-horizontal", role = "/form" }))
+{
+    <table class="table">
+         <tr>
+             <th>
+                 @Html.LabelFor(m => m.student.Voornaam)
+             </th>
+             <td>
+                 @Html.DisplayFor(m => m.student.Voornaam)
+                 @Html.ValidationMessageFor(m => m.student.Voornaam)
+             </td>
+         </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.student.Naam)
+            </th>
+            <td>
+                @Html.DisplayFor(m => m.student.Naam)
+                @Html.ValidationMessageFor(m => m.student.Naam)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.student.Email)
+            </th>
+            <td>
+                @Html.DisplayFor(m => m.student.Email)
+                @Html.ValidationMessageFor(m => m.student.Email)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.Voornaamcp)
+            </th>
+            <td>
+                @Html.TextBoxFor(m => m.Voornaamcp)
+                @Html.ValidationMessageFor(m => m.Voornaamcp)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.Naamcp)
+            </th>
+            <td>
+                @Html.TextBoxFor(m => m.Naamcp)
+                @Html.ValidationMessageFor(m => m.Naamcp)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.Emailcp)
+            </th>
+            <td>
+                @Html.TextBoxFor(m => m.Emailcp)
+                @Html.ValidationMessageFor(m => m.Emailcp)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.Organisatiecp)
+            </th>
+            <td>
+                @Html.TextBoxFor(m => m.Organisatiecp)
+                @Html.ValidationMessageFor(m => m.Organisatiecp)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.Titel)
+            </th>
+            <td>
+                @Html.TextBoxFor(m => m.Titel)
+                @Html.ValidationMessageFor(m => m.Titel)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.Onderzoeksdomein1, new { @for = "Od1" })
+            </th>
+            <td>
+                @Html.DropDownListFor(m => m.Onderzoeksdomein1, Model.SelectList1, " -- selecteer een domein --")
+                @Html.ValidationMessageFor(m => m.Onderzoeksdomein1)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.Onderzoeksdomein2, new { @for = "Od2" })
+            </th>
+            <td>
+                @Html.DropDownListFor(m => m.Onderzoeksdomein2, Model.SelectList2, " -- selecteer een domein --")
+                @Html.ValidationMessageFor(m => m.Onderzoeksdomein2)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.Trefwoorden)
+            </th>
+            <td>
+                @Html.TextBoxFor(m => m.Trefwoorden)
+                @Html.ValidationMessageFor(m => m.Trefwoorden)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.Probleemstelling)
+            </th>
+            <td>
+                @Html.TextBoxFor(m => m.Probleemstelling)
+                @Html.ValidationMessageFor(m => m.Probleemstelling)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.Context)
+            </th>
+            <td>
+                @Html.TextBoxFor(m => m.Context)
+                @Html.ValidationMessageFor(m => m.Context)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.Doelstelling)
+            </th>
+            <td>
+                @Html.TextBoxFor(m => m.Doelstelling)
+                @Html.ValidationMessageFor(m => m.Doelstelling)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.Onderzoeksvraag)
+            </th>
+            <td>
+                @Html.TextBoxFor(m => m.Onderzoeksvraag)
+                @Html.ValidationMessageFor(m => m.Onderzoeksvraag)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.PlanVanAanpak)
+            </th>
+            <td>
+                @Html.TextBoxFor(m => m.PlanVanAanpak)
+                @Html.ValidationMessageFor(m => m.PlanVanAanpak)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.ReferentieLijst)
+            </th>
+            <td>
+                @Html.TextBoxFor(m => m.ReferentieLijst)
+                @Html.ValidationMessageFor(m => m.ReferentieLijst)
+            </td>
+        </tr>
+    </table>
+    
+<br />
+    <input type="submit" value="Opslaan" class="btn btn-default" />
+}
+
+@Html.ActionLink("Terug", "Voorstellen")

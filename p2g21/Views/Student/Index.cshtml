@@ -1,0 +1,15 @@
+﻿    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/_LayoutApps.cshtml";
+        <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    }
+
+<h3>Welkom</h3>
+
+<p>
+    Je voorstel klaarmaken voor inzending kan je @Html.ActionLink("hier", "Voorstellen", "Student") doen.
+    <br />Je kan het voorstel @Html.ActionLink("hier", "Voorstellen", "Student") dan ook indienen. 
+    <br />
+    <br />
+    Als je de verwerking van je voorstel wil opvolgen kan dat @Html.ActionLink("hier", "Dossiers", "Student").
+</p>

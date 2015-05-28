@@ -1,0 +1,76 @@
+﻿@model p2g21.Models.ViewModels.VoorstelIndienenModel
+@{
+    ViewBag.Title = "Voorstel bekijken";
+    Layout = "~/Views/Shared/_LayoutApps.cshtml";
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+}
+@using (Html.BeginForm("VoorstelBekijkenODV", "BachelorProefCoordinator", new { ids = Model.sID, idv = Model.vID}))
+{
+<table class="table">
+    <tr>
+        <td>
+            @Html.DisplayName("Titel voorstel")
+        </td>
+        <td>
+            @Html.DisplayFor(item => item.Titel)
+        </td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayName("Onderzoeksdomein 1")</td>
+        <td>@Html.DropDownListFor(m => m.Onderzoeksdomein1, Model.SelectList1, " -- selecteer een domein --")</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayName("Onderzoeksdomein 2")</td>
+        <td>@Html.DropDownListFor(m => m.Onderzoeksdomein1, Model.SelectList1, " -- selecteer een domein --")</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayName("Trefwoorden")</td>
+        <td>@Html.DisplayFor(item => item.Trefwoorden)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayName("Probleemstelling")</td>
+        <td>@Html.DisplayFor(item => item.Probleemstelling)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayName("Context")</td>
+        <td>@Html.DisplayFor(item => item.Context)</td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Doelstelling)
+        </td>
+        <td>
+            @Html.DisplayFor(item => item.Doelstelling)
+        </td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.Onderzoeksvraag)</td>
+        <td>@Html.DisplayFor(item => item.Onderzoeksvraag)</td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayName("Plan van aanpak")
+        </td>
+        <td>
+            @Html.DisplayFor(item => item.PlanVanAanpak)
+        </td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayName("Referenties")</td>
+        <td>@Html.DisplayFor(item => item.ReferentieLijst)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayName("Tijdstip van indienen")</td>
+        <td>@Html.DisplayFor(item => item.TijdstipIndienen)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.Toestand)</td>
+        <td>@Html.DisplayFor(item => item.Toestand)</td>
+    </tr>
+</table>
+    <br />
+    <input type="submit" value="Opslaan" class="btn btn-default" />
+    
+}
+
+@Html.ActionLink("Terug", "OverzichtDossiers")

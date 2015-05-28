@@ -1,0 +1,38 @@
+﻿@model IEnumerable<p2g21.Models.Domain.Student>
+@{
+    ViewBag.Title = "Deadline Wijzigen";
+    Layout = "~/Views/Shared/_LayoutApps.cshtml";
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+}
+
+<h3>Studenten</h3>
+
+<table class="table">
+    <tr>
+        <th>
+            Student
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Deadline)
+        </th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Voornaam) @Html.DisplayFor(modelItem => item.Naam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deadline)
+            </td>
+            <td>
+                @Html.ActionLink("Deadline Wijzigen", "Deadline", new { id = item.GebruikerId })
+            </td>
+        </tr>
+    }
+</table>
+
+

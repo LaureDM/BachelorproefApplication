@@ -1,0 +1,40 @@
+﻿@model p2g21.Models.NieuwWachtwoordModel
+
+@{
+    ViewBag.Title = "Nieuw Wachtwoord";
+    Layout = "~/Views/Shared/_LayoutApps.cshtml";
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+}
+
+<h1>Geef een nieuw wachtwoord</h1>
+
+@using (Html.BeginForm("NieuwWachtwoord", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.NieuwWachtwoord)<br />
+            </th>
+            <td>
+                @Html.PasswordFor(m => m.NieuwWachtwoord)
+                @Html.ValidationMessageFor(m => m.NieuwWachtwoord, null, new { @class = "help-inline" })<br />
+            </td>
+        </tr>
+        <tr>
+            <th>
+               @Html.LabelFor(m => m.BevestigWachtwoord)<br />
+            </th>
+             <td>
+               @Html.PasswordFor(m => m.BevestigWachtwoord)
+               @Html.ValidationMessageFor(m => m.BevestigWachtwoord, null, new { @class = "help-inline" })<br />
+             </td>
+        </tr>
+    </table>
+    
+    
+    <input type="submit" value="Log in" class="btn btn-default" />
+}
+
+
+

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<p2g21.Models.Domain.Dossier>
+@{
+    ViewBag.Title = "Dossiers";
+    Layout = "~/Views/Shared/_LayoutApps.cshtml";
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+}
+
+<h3>Dossiers van @ViewBag.Naam</h3>
+
+<table class="table">
+    <tr>
+        <th>
+            Titel voorstel
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            Indiendatum
+        </th>
+        <th>
+            Feedback
+        </th>
+        <th>
+            Goedgekeurd door student
+        </th>
+    </tr>
+
+            @foreach (var dossier in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => dossier.IngediendVoorstel.VoorstelTitel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => dossier.IngediendVoorstel.Toestand)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => dossier.IngediendVoorstel.TijdstipIndienen)
+                    </td>
+                    <td>
+                        @if(dossier.IngediendVoorstel.Feedback != null)
+                        {
+                            @Html.ActionLink("Bekijken", "Feedback", new { id = dossier.StudentId })
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem=>dossier.Geaccepteerd)
+                    </td>
+                </tr>
+            }
+    
+</table>

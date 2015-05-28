@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Promotor";
+    Layout = "~/Views/Shared/_LayoutApps.cshtml";
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+}
+
+<h3>Welkom</h3>
+<p>
+    Je studenten opvolgen en hun voorstel beoordelen kan je hier doen: @Html.ActionLink("Voorstel evalueren", "Evalueren", "Promotor").
+    <br />
+    <br />
+    Wil je de deadline van een student wijzigen, dan kan je dat hier doen: @Html.ActionLink("Deadline wijzigen", "DeadlineWijzigen","Promotor").
+    <br />
+    <br />
+    Een overzicht van je dossiers kan je hier vinden: @Html.ActionLink("Overzicht Dossiers", "OverzichtDossiers", "Promotor")
+</p>

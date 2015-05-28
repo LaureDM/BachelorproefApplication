@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="p2g21.Models.Domain.BachelorProefCoordinator" Collapsed="true">
+    <Position X="10.25" Y="19" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\BachelorProefCoordinator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p2g21.Models.Domain.BCrypt">
+    <Position X="23.5" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAEBkBAQAAAAAAgAAgEAIAACIQcEAAKAAACA=</HashCode>
+      <FileName>Models\Domain\BCrypt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p2g21.Models.Domain.Dossier" Collapsed="true">
+    <Position X="17.25" Y="23.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAABAAAAAAAEAAAAAiAAA=</HashCode>
+      <FileName>Models\Domain\Dossier.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="IngediendVoorstel" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="p2g21.Models.Domain.Feedback">
+    <Position X="4" Y="20.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>BAAABAAAAgAAAAgAAACAEAAIABACAAAAAAAIAEAwAAA=</HashCode>
+      <FileName>Models\Domain\Feedback.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p2g21.Models.Domain.Gebruiker" Collapsed="true">
+    <Position X="10.5" Y="17.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAgACAAAAAAAIAABEAMEAQAAAAAAAAAAAAAQIA=</HashCode>
+      <FileName>Models\Domain\Gebruiker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p2g21.Models.Domain.Historiek" Collapsed="true">
+    <Position X="17.5" Y="24.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAgAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Models\Domain\Historiek.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p2g21.Models.Domain.Onderzoeksdomein" Collapsed="true">
+    <Position X="8.75" Y="21.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAABAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\Onderzoeksdomein.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Voorstellen" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="p2g21.Models.Domain.PasswordHash">
+    <Position X="25.25" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAgEAhCIAAAQAAAAAIAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Models\Domain\PasswordHash.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p2g21.Models.Domain.Promotor" Collapsed="true">
+    <Position X="13.75" Y="19" Width="2" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\Promotor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Studenten" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="p2g21.Models.Domain.Student" Collapsed="true">
+    <Position X="7.5" Y="19" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABIkAUAAQAABAAAAAQIAAIEAAAAAAUBEAAAAAA=</HashCode>
+      <FileName>Models\Domain\Student.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Historiek" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Voorstellen" />
+      <Property Name="Dossiers" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="p2g21.Models.Domain.Voorstel" Collapsed="true">
+    <Position X="10.25" Y="20.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>EIAQAALABgQgAAQAgAOGAQgAAxAAJgQAIAAHAAACQBE=</HashCode>
+      <FileName>Models\Domain\Voorstel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Historiek" />
+      <Property Name="Od1" />
+      <Property Name="Od2" />
+      <Property Name="HuidigeToestand" />
+      <Property Name="Feedback" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Onderzoeksdomeinen" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="p2g21.Models.Domain.StatePattern.VoorstelToestand" Collapsed="true">
+    <Position X="11.75" Y="21.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACEAAAAAAAQAABAAgAAQAACAAEAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\StatePattern\VoorstelToestand.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Voorstel" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="p2g21.Models.Domain.StatePattern.AdviesBPC" Collapsed="true">
+    <Position X="10.5" Y="22.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\StatePattern\AdviesBPC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p2g21.Models.Domain.StatePattern.Goedgekeurd" Collapsed="true">
+    <Position X="12.25" Y="22.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\StatePattern\Goedgekeurd.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p2g21.Models.Domain.StatePattern.GoedgekeurdMetOpmerkingen" Collapsed="true">
+    <Position X="7.75" Y="22.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\StatePattern\GoedgekeurdMetOpmerkingen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p2g21.Models.Domain.StatePattern.NieuwVoorstel" Collapsed="true">
+    <Position X="9.25" Y="23.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\StatePattern\NieuwVoorstel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="p2g21.Models.Domain.StatePattern.VoorstelInBehandeling" Collapsed="true">
+    <Position X="11.5" Y="23.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAQAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Domain\StatePattern\VoorstelInBehandeling.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
